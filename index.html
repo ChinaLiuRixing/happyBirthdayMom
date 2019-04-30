@@ -8,57 +8,47 @@
     <title>Document</title>
     <style>
         #container {
-            width: 750px;
-            margin: 50px auto;
-            height: 800px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            border: 1px solid rgb(245, 108, 108);
+            width: 90vw;
+            height: 90vw;
+            margin: 4vw auto;
+            border: 1vw solid red;
             background: white;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            font-size: 0;
         }
         
         .font {
-            /* background: green; */
             position: absolute;
             z-index: 1000;
-            width: 700px;
-            margin: 25px;
-            height: 800px;
-            line-height: 250px;
-            text-align: center;
-            font-size: 100px;
-            color: white
-        }
-        
-        #start {
-            width: 100px;
-            height: 50px;
-            background: rgb(245, 108, 108);
-            text-align: center;
-            line-height: 50px;
-            border-radius: 10px;
+            font-size: 15vw;
+            font-weight: 700;
             color: white;
-            display: inline-block;
+            width: 90vw;
+            height: 90vw;
+            text-align: center;
+            line-height: 30vw;
         }
         
-        #clear {
+        .item {
+            width: 20vw;
+            height: 10vw;
+            background: red;
+            margin: 5vw;
             display: inline-block;
-            width: 100px;
-            height: 50px;
-            background: rgb(245, 108, 108);
             text-align: center;
-            line-height: 50px;
-            border-radius: 10px;
+            line-height: 10vw;
+            border-radius: 2vw;
             color: white;
         }
     </style>
 </head>
 
 <body>
-    <div id="start">开始</div>
-    <div id="clear">清空</div>
+    <div id="start" class="item">开始</div>
+    <div id="clear" class="item">清空</div>
     <div id="container">
         <div class="font">祝福张春梅女士--我的妈妈生日快乐</div>
     </div>
@@ -74,12 +64,12 @@
                 container.innerHTML = `<div class="font">祝福张春梅女士--我的妈妈生日快乐</div>`;
                 count = 0;
                 var timer = setInterval(() => {
-                    if (count >= 239) {
+                    if (count >= 99) {
                         clearInterval(timer)
                     }
                     console.log(count)
                     var randomColor = "#" + Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0");
-                    container.innerHTML += `<div style="width:50px;height:50px;background:${randomColor};border-radius:0%"></div>`
+                    container.innerHTML += `<div style="width:9vw;height:9vw;background:${randomColor};border-radius:0%"></div>`
                     count++;
                 }, 10);
             }
