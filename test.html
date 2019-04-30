@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 750px;
+            margin: 50px auto;
+            height: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            border: 1px solid rgb(245, 108, 108);
+        }
+        
+        .font {
+            /* background: green; */
+            position: absolute;
+            z-index: 1000;
+            width: 700px;
+            margin: 25px;
+            height: 800px;
+            line-height: 250px;
+            text-align: center;
+            font-size: 100px;
+            color: white
+        }
+        
+        #start {
+            width: 100px;
+            height: 50px;
+            background: rgb(245, 108, 108);
+            text-align: center;
+            line-height: 50px;
+            border-radius: 10px;
+            color: white;
+            display: inline-block;
+        }
+        
+        #clear {
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            background: rgb(245, 108, 108);
+            text-align: center;
+            line-height: 50px;
+            border-radius: 10px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="start">开始</div>
+    <div id="clear">清空</div>
+    <div id="container">
+        <div class="font">祝福张春梅女士--我的妈妈生日快乐</div>
+    </div>
+    <script>
+        window.onload = function() {
+            var container = document.getElementById("container");
+            let count = 0;
+            document.getElementById("clear").onclick = function() {
+                container.innerHTML = `<div class="font">祝福张春梅女士--我的妈妈生日快乐</div>`;
+                count = 0;
+            }
+            document.getElementById("start").onclick = function() {
+                container.innerHTML = `<div class="font">祝福张春梅女士--我的妈妈生日快乐</div>`;
+                count = 0;
+                var timer = setInterval(() => {
+                    if (count >= 239) {
+                        clearInterval(timer)
+                    }
+                    console.log(count)
+                    var randomColor = "#" + Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, "0");
+                    container.innerHTML += `<div style="width:50px;height:50px;background:${randomColor};border-radius:0%"></div>`
+                    count++;
+                }, 10);
+            }
+
+        }
+    </script>
+</body>
+
+</html>
